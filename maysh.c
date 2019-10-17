@@ -1,9 +1,3 @@
-/* NAME        : MANAS
- * ROLL NO.    : 2018244
- * COURSE      : COMPUTER ARCHITECTURE AND OPERATING SYSTEMS (CSE 234)
- * INSTRUCTOR  : DR. SAMBUDDHO CHAKRAVARTY
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
