@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
+#include <errno.h>
+#include <dirent.h>
 
 #define BUFFER_SIZE     16	// space for storing each space-separated commands
 #define SPACE_SEP_WORDS 8	// space for space-separated words
@@ -84,9 +86,16 @@ void executeCMD_intern(char *lineptr[], int lineptrlen){
 void executeCMD_cd(char *lineptr[], int lineptrlen){
 	if(lineptrlen == 1)
 		chdir(getenv("HOME"));
-	else if(lineptrlen == 2)
-		chdir(lineptr[1]);
-	else
+	else if(lineptrlen == 2){
+		DIR *directory = opendir(lineptr[1]);
+		if(directory) {
+			chdir(lineptr[1]);
+		} else if(ENOENT == errno){
+			fprintf(stderr, "error: No such directory\n");
+		} else {
+			fprintf(stderr, "error: could not change dir\n");
+		}
+	} else
 		fprintf(stderr, "error: unexpected arguments to %s\n", lineptr[0]);
 }
 
