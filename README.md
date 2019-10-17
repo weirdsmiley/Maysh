@@ -1,2 +1,2 @@
 # Maysh
-A simple shell in C
+> A simple shell in C
