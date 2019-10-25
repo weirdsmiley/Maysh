@@ -1,2 +1,7 @@
+CCLANG=gcc
+INFILE=maysh.c
+FLAGS=g
+OUTFILE=maysh
+
 all:
-	gcc maysh.c -o maysh
+	${CCLANG} ${INFILE} -${FLAGS} -o ${OUTFILE}
