@@ -1,26 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/wait.h>
-#include <errno.h>
-#include <dirent.h>
-
-#define BUFFER_SIZE     16	// space for storing each space-separated commands
-#define SPACE_SEP_WORDS 8	// space for space-separated words
-
-int inputStream(char *, int *);
-int parseStream(char *[], char *, int);
-int checkExit(char *);
-void strncopy(char [], char [], int);
-void strcopy(char [], char []);
-void executeCMD_extern(char *[], int);
-void executeCMD_intern(char *[], int);
-void executeCMD_cd(char *[], int);
-void executeCMD_history(char *[], int);
-void executeCMD_pwd(char *[], int);
-void executeHelp(char *[], int);
+#include "maysh.h"
 
 int main(int argc, char **argv){
 
@@ -55,10 +33,13 @@ int main(int argc, char **argv){
 		for(int i=0; i < lineptrlen; ++i)
 			free(lineptr[i]);
 	}
-
 	return 0;
 }
 
+/* Wrapper function for executing external shell commands.
+ * Executes command after forking using execvp() function and reports error if necessary
+ * Parent process waits until child is finished.
+ */
 void executeCMD_extern(char *lineptr[], int lineptrlen){
 	if(fork() == 0)
 		if(execvp(lineptr[0], lineptr) < 0){
@@ -72,6 +53,10 @@ void executeCMD_extern(char *lineptr[], int lineptrlen){
 	}
 }
 
+/* Wrapper function for executing internal shell commands
+ * Compares which internal command has been input then 
+ * calls it's respective function.
+ */
 void executeCMD_intern(char *lineptr[], int lineptrlen){
 	if(!strcmp(lineptr[0], "cd"))
 		executeCMD_cd(lineptr, lineptrlen);
@@ -83,6 +68,13 @@ void executeCMD_intern(char *lineptr[], int lineptrlen){
 		executeHelp(lineptr, lineptrlen);
 }
 
+/* Handles `cd`
+ * checks if a dir exists, then changes to the dir,
+ * otherwise throws error
+ *
+ * EXTRAS:
+ * 1. if there are no parameters then changes directory to /home/$USER
+ */
 void executeCMD_cd(char *lineptr[], int lineptrlen){
 	if(lineptrlen == 1)
 		chdir(getenv("HOME"));
@@ -99,6 +91,13 @@ void executeCMD_cd(char *lineptr[], int lineptrlen){
 		fprintf(stderr, "error: unexpected arguments to %s\n", lineptr[0]);
 }
 
+/* Handles `history`
+ * redirects every command to /home/$USER/.maysh_history
+ * 
+ * EXTRAS:
+ * 1. history -c : deletes all entries of .maysh_history
+ * 
+ */
 void executeCMD_history(char *lineptr[], int lineptrlen){
 	char file_to_home[128];
 	strcat(strcpy(file_to_home, getenv("HOME")), "/.maysh_history");
@@ -143,7 +142,7 @@ void executeCMD_pwd(char *lineptr[], int lineptrlen){
 void executeHelp(char *lineptr[], int lineptrlen){
 	printf("maysh version-0.1 - A Linux Shell\n"
 			"List of implemented internal commands:\n"
-			"\t1. cd [-LP] [dir]\n"
+			"\t1. cd [dir]\n"
 			"\t2. exit\n"
 			"\t3. history [-c]\n"
 			"\t4. pwd [-LP]\n"
