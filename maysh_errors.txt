@@ -1,0 +1,155 @@
+[neon@nitro-5 Maysh]
+$ ./maysh 
+neon@maysh:/home/neon/workspace/Maysh
+$ ls
+images  LICENSE  Makefile  maysh  maysh.c  maysh.h  README.md
+neon@maysh:/home/neon/workspace/Maysh
+$ ls
+images  LICENSE  Makefile  maysh  maysh.c  maysh.h  README.md
+neon@maysh:/home/neon/workspace/Maysh
+$ history
+history
+exit
+pwd
+ps -ef
+q
+
+help
+exit
+pwd -P
+pwd -L
+cd
+cd /
+ls
+exit
+ls
+ls
+history
+neon@maysh:/home/neon/workspace/Maysh
+$ history -c
+neon@maysh:/home/neon/workspace/Maysh
+$ cat ~/.maysh_history
+cat: '~/.maysh_history': No such file or directory
+neon@maysh:/home/neon/workspace/Maysh
+$ cat /home/neon/maysh_history
+cat: /home/neon/maysh_history: No such file or directory
+neon@maysh:/home/neon/workspace/Maysh
+$ cat /home/neon/.maysh_history
+corrupted size vs. prev_size
+Aborted (core dumped)
+[neon@nitro-5 Maysh]
+$ rm /home/neon/.maysh_history 
+[neon@nitro-5 Maysh]
+$ ./maysh 
+neon@maysh:/home/neon/workspace/Maysh
+$ history
+history
+neon@maysh:/home/neon/workspace/Maysh
+$ ls
+images  LICENSE  Makefile  maysh  maysh.c  maysh.h  README.md
+neon@maysh:/home/neon/workspace/Maysh
+$ history
+history
+ls
+history
+neon@maysh:/home/neon/workspace/Maysh
+$ history -c
+neon@maysh:/home/neon/workspace/Maysh
+$ cat /home/neon/.maysh_history
+cat /home/neon/.maysh_history
+neon@maysh:/home/neon/workspace/Maysh
+$ ls 
+images  LICENSE  Makefile  maysh  maysh.c  maysh.h  README.md
+neon@maysh:/home/neon/workspace/Maysh
+$ history
+cat /home/neon/.maysh_history
+ls
+history
+neon@maysh:/home/neon/workspace/Maysh
+$ cat /home/neon/.maysh_history
+cat /home/neon/.maysh_history
+ls
+history
+cat /home/neon/.maysh_history
+neon@maysh:/home/neon/workspace/Maysh
+$ history -c
+neon@maysh:/home/neon/workspace/Maysh
+$ cat /home/neon/.maysh_history
+cat /home/neon/.maysh_history
+neon@maysh:/home/neon/workspace/Maysh
+$ ls
+images  LICENSE  Makefile  maysh  maysh.c  maysh.h  README.md
+neon@maysh:/home/neon/workspace/Maysh
+$ history
+cat /home/neon/.maysh_history
+ls
+history
+neon@maysh:/home/neon/workspace/Maysh
+$ history -c
+neon@maysh:/home/neon/workspace/Maysh
+$ cat ~/.maysh_history
+cat: '~/.maysh_history': No such file or directory
+neon@maysh:/home/neon/workspace/Maysh
+$ history
+cat ~/.maysh_history
+history
+neon@maysh:/home/neon/workspace/Maysh
+$ cat /home/neon/.maysh_history
+cat ~/.maysh_history
+history
+cat /home/neon/.maysh_history
+neon@maysh:/home/neon/workspace/Maysh
+$ [neon@nitro-5 Maysh]
+$ ./maysh 
+neon@maysh:/home/neon/workspace/Maysh
+$ wc -l /home/neon/.maysh_history
+5 /home/neon/.maysh_history
+neon@maysh:/home/neon/workspace/Maysh
+$ history
+cat ~/.maysh_history
+history
+cat /home/neon/.maysh_history
+
+wc -l /home/neon/.maysh_history
+history
+neon@maysh:/home/neon/workspace/Maysh
+$ history -c
+neon@maysh:/home/neon/workspace/Maysh
+$ cat ~/maysh_history
+cat: '~/maysh_history': No such file or directory
+neon@maysh:/home/neon/workspace/Maysh
+$ cat /home/neon/.maysh_history
+cat ~/maysh_history
+cat /home/neon/.maysh_history
+neon@maysh:/home/neon/workspace/Maysh
+$ cat ~/.maysh_history
+cat: '~/.maysh_history': No such file or directory
+neon@maysh:/home/neon/workspace/Maysh
+$ history
+cat ~/maysh_history
+cat /home/neon/.maysh_history
+cat ~/.maysh_history
+history
+neon@maysh:/home/neon/workspace/Maysh
+$ cat /home/neon/.maysh_history
+cat ~/maysh_history
+cat /home/neon/.maysh_history
+cat ~/.maysh_history
+history
+cat /home/neon/.maysh_history
+neon@maysh:/home/neon/workspace/Maysh
+$ cat /home/neon/maysh_history
+cat: /home/neon/maysh_history: No such file or directory
+neon@maysh:/home/neon/workspace/Maysh
+$ cat /home/neon/.maysh_history
+cat ~/maysh_history
+cat /home/neon/.maysh_history
+cat ~/.maysh_history
+history
+cat /home/neon/.maysh_history
+cat /home/neon/maysh_history
+cat /home/neon/.maysh_history
+free(): invalid pointer
+Aborted (core dumped)
+[neon@nitro-5 Maysh]
+$ 
