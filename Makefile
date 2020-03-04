@@ -6,3 +6,6 @@ OUTFILE=maysh
 
 all:
 	${CCLANG} ${INFILE} -${DISABLEWARNS} -${GDBCOMPLIANT} -o ${OUTFILE}
+
+clean:
+	rm -f maysh
