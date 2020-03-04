@@ -1,3 +1,4 @@
+/* Header files */
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -10,6 +11,7 @@
 #define BUFFER_SIZE     16	// space for storing each space-separated commands
 #define SPACE_SEP_WORDS 8	// space for space-separated words
 
+/* Function declarations */
 int inputStream(char *, int *);
 int parseStream(char *[], char *, int);
 int checkExit(char *);
